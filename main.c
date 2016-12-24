@@ -10,10 +10,10 @@ int main() {
     // BubbleSort(A, N);
     // OptimizedBubbleSort(A, N);
     // SelectionSort(A, N);
-    // ShellSort(A, N);
+    ShellSort(A, N);
     // HeapSort(A, N);
     // MergeSort(A, N);
-    QuickSort(A, N);
+    // QuickSort(A, N);
     PrintArray(A, N);
     VerifyOrder(A, N);
 

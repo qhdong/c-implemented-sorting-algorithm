@@ -1,17 +1,22 @@
-CC=gcc
-CFLAGS=-c
-#SOURCES=main.c sort.c sort.h util.c util.h
-SOURCES=main.c mysort.c mysort.h util.c util.h
-OBJECTS=$(SOURCES:.c=.o)
-EXECUTABLE=sortdemo
+CC = clang
+CFLAGS = -g -Wall
+LDFLAGS =
+INCLUDES = -I.
+SOURCES = main.c \
+		  sort.c \
+		  util.c
 
-all: $(SOURCES) $(EXECUTABLE)
+OBJECTS = $(SOURCES:.c=.o)
+TARGET = sort
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $@
+all: $(TARGET)
+	@echo Compile sortdemo ok!
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(CFLAGS) $(INCLUDES) -o $(TARGET) $(OBJECTS) $(LDFLAGS)
 
 .c.o:
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm *.o $(EXECUTABLE)
+	rm *.o $(TARGET)
